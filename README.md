@@ -1,0 +1,1 @@
+Simple implementation of [this](https://www.youtube.com/watch?v=eUMgWOcvagQ) Apollo GraphQL tutorial, with an Indo-European languages theme!
