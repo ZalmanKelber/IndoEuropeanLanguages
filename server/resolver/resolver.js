@@ -14,6 +14,13 @@ const branches = [
 const resolvers = {
     branches: () => {
         return branches;
+    },
+    addBranch: args => {
+        return {
+            name: args.name,
+            geographicExpanse: args.geographicExpanse,
+            languages: args.languages.split(", ")
+        }
     }
 }
 
