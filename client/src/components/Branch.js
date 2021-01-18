@@ -6,9 +6,10 @@ const Branch = ({data}) => {
             <div className="container">
                 <h2>{data.name}</h2>
                 <h4>{data.geographicExpanse}</h4>
+                <img alt="Branch" src={data.imageUrl} width="100%" height="auto" />
                 {
-                    data.languages.map(language => {
-                        return <h4>{language}</h4>
+                    data.languages.map((language, i) => {
+                        return <h4 key={i}>{language}</h4>
                     })
                 }
             </div>

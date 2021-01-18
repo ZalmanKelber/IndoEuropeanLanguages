@@ -1,6 +1,7 @@
 import Header from "./Header";
 import Footer from "./Footer";
 import Branches from "../containers/Branches";
+import AddBranch from "./AddBranch";
 
 import "../css/App.css";
 
@@ -9,6 +10,7 @@ function App() {
     <div className="App">
       <Header />
       <Branches />
+      <AddBranch />
       <Footer />
     </div>
   );
