@@ -7,13 +7,14 @@ const branchSchema = buildSchema(`
     }
 
     type Mutation {
-        addBranch(name: String!, geographicExpanse: String!, languages: String!): Branch
+        addBranch(name: String!, geographicExpanse: String!, languages: String!, imageUrl: String!): Branch
     }
 
     type Branch {
         name: String,
         geographicExpanse: String,
-        languages: [String]
+        languages: [String],
+        imageUrl: String
     }
 `);
 

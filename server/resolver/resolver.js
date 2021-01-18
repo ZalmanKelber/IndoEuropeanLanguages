@@ -22,7 +22,8 @@ const resolvers = {
         const branch = new Branch({
             name: args.name,
             geographicExpanse: args.geographicExpanse,
-            languages: args.languages.split(", ")
+            languages: args.languages.split(", "),
+            imageUrl: args.imageUrl
         });
         branch.save();
         return branch;

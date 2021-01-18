@@ -1,6 +1,7 @@
 const dotenv = require("dotenv");
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const { graphqlHTTP } = require("express-graphql");
 const { buildSchema } = require("graphql");
 
@@ -9,6 +10,7 @@ const resolvers = require("./resolver/resolver");
 
 dotenv.config();
 const app = express();
+app.use(cors());
 
 const mongoUri = `mongodb+srv://ZalmanKelber:${process.env.PASSWORD}@cluster0.ativt.mongodb.net/indoeuropeandev?retryWrites=true&w=majority`
 mongoose.connect(mongoUri, {
