@@ -13,14 +13,19 @@ const branches = [
 
 const resolvers = {
     branches: () => {
-        return branches;
+        return Branch.find({});
+    },
+    branchByName: ({ name }) => {
+        return Branch.findOne({ name })
     },
     addBranch: args => {
-        return {
+        const branch = new Branch({
             name: args.name,
             geographicExpanse: args.geographicExpanse,
             languages: args.languages.split(", ")
-        }
+        });
+        branch.save();
+        return branch;
     }
 }
 

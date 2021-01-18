@@ -2,11 +2,12 @@ const { buildSchema } = require("graphql");
 
 const branchSchema = buildSchema(`
     type Query {
-        branches: [Branch]
+        branches: [Branch],
+        branchByName(name: String!): Branch
     }
 
     type Mutation {
-        addBranch(name: String, geographicExpanse: String, languages: String): Branch
+        addBranch(name: String!, geographicExpanse: String!, languages: String!): Branch
     }
 
     type Branch {
