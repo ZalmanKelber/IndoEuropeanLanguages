@@ -4,6 +4,9 @@ const mongoose = require("mongoose");
 const { graphqlHTTP } = require("express-graphql");
 const { buildSchema } = require("graphql");
 
+const branchSchema = require("./schema/schema");
+const resolvers = require("./resolver/resolver");
+
 dotenv.config();
 const app = express();
 
@@ -14,25 +17,13 @@ mongoose.connect(mongoUri, {
     useUnifiedTopology: true
 }).then(() => console.log("MongoDB connected")).catch(err => console.log("error:", err));
 
-const schema = buildSchema(`
-    type Query {
-        name: String
-    }
-`)
-
-const rootValue = {
-    name: () => {
-        return "Indo-European Languages";
-    }
-}
-
 app.get("/", (req, res) => {
     res.send("Hello from Server");
 });
 
 app.use("/graphql", graphqlHTTP({
-    schema,
-    rootValue,
+    schema: branchSchema,
+    rootValue: resolvers,
     graphiql: true
 }));
 
